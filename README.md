@@ -8,11 +8,11 @@ Este repositório contém a infraestrutura de engenharia e o motor de busca RAG 
 
 A fundação do projeto foi estabelecida seguindo as melhores práticas de mercado:
 
-* **Gestão de Dependências:** Uso do `uv` para instalação rápida de pacotes Python 3.12.
-* **Módulo Python:** Estruturação do pacote `assistente_rag_lexml`.
-* **Arquitetura de Dados:** Diretórios para o ciclo de vida dos dados: `data/raw`, `data/processed`, `models` e `notebooks`.
-* **Banco Vetorial:** Motor de busca validado com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
-* **ETL Pipeline:** Extração de textos de documentos XML do LexML (`data_ingestion.py`).
+* **Gestão de dependências:** uso do `uv` para instalação rápida de pacotes Python 3.12.
+* **Módulo Python:** estruturação do pacote `assistente_rag_lexml`.
+* **Arquitetura de dados:** diretórios para o ciclo de vida dos dados: `data/raw`, `data/processed`, `models` e `notebooks`.
+* **Banco vetorial:** motor de busca validado com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
+* **ETL pipeline:** extração de textos de documentos XML do LexML (`data_ingestion.py`).
 
 ---
 
@@ -69,3 +69,37 @@ cp .env.example .env
 * Engenharia e Infra: Daniel Linhares e Camila
 * Dados e Ingestão (XML): Nathalia
 * Baselines e LLM: Gisele
+
+---
+
+## 🚀 Guia de colaboração profissional: Projeto LexML
+
+Para garantirmos a integridade do código e a agilidade nas entregas, adotaremos o seguinte fluxo de trabalho.
+
+### 1. Divisão de frentes (squad)
+
+Cada membro possui uma área de atuação clara para evitar sobreposição de tarefas e conflitos de código:
+
+| Membro | Frente de atuação | Responsabilidade principal |
+|---|---|---|
+| Daniel Linhares | Engenharia & Infra | Manutenção do motor RAG, validação de ambiente e revisão de Pull Requests. |
+| Nathalia, Camila & Saimon | Dados & Ingestão | Coleta, limpeza e estruturação dos XMLs oficiais do LexML na pasta `data/raw`. |
+| Gisele & Stanley | Baselines & LLM | Criação de notebooks de teste, refino de prompts e avaliação da precisão das respostas. |
+
+### 2. Fluxo de trabalho no Git (Git Flow profissional)
+
+| Passo | Ação | Comando / Descrição |
+|---|---|---|
+| 1. Sync | Atualizar sua máquina local | `git checkout main` seguido de `git pull origin main` |
+| 2. Branch | Criar ramo para sua tarefa | `git checkout -b feat/nome-da-sua-tarefa` |
+| 3. Commit | Registrar alterações | Use prefixos: `feat:` (dados/funções), `fix:` (correções) ou `docs:` |
+| 4. Push | Enviar para o servidor | `git push origin nome-da-sua-branch` |
+| 5. PR | Integrar ao projeto | Abrir um Pull Request no GitHub para revisão do Daniel. |
+
+### 3. Padrões de ambiente e execução
+
+| Ferramenta | Padrão adotado | Motivo |
+|---|---|---|
+| Gestor | `uv` | Garante velocidade e isolamento idêntico entre Windows/Linux. |
+| Execução | `uv run python main.py` | Garante que todas as bibliotecas de IA sejam carregadas corretamente. |
+| Dados | `data/raw` | Local obrigatório para despejo de arquivos XML brutos. |
