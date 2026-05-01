@@ -8,12 +8,20 @@ Este repositório contém a infraestrutura de engenharia e o motor de busca RAG 
 
 A fundação do projeto foi estabelecida seguindo as melhores práticas de mercado:
 
-* **Gestão de dependências:** uso do `uv` para instalação rápida de pacotes Python 3.12.
-* **Módulo Python:** estruturação do pacote `assistente_rag_lexml`.
-* **Arquitetura de dados:** diretórios para o ciclo de vida dos dados: `data/raw`, `data/processed`, `models` e `notebooks`.
-* **Reproduzibilidade:** `Dockerfile` configurado para isolamento do ambiente.
-* **Banco vetorial:** motor de busca com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
-* **ETL pipeline:** extração de textos de documentos XML do LexML (`data_ingestion.py`).
+* **Gestão de Dependências:** Uso do `uv` para instalação rápida de pacotes Python 3.12.
+* **Módulo Python:** Estruturação do pacote `assistente_rag_lexml`.
+* **Arquitetura de Dados:** Diretórios para o ciclo de vida dos dados: `data/raw`, `data/processed`, `models` e `notebooks`.
+* **Banco Vetorial:** Motor de busca validado com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
+* **ETL Pipeline:** Extração de textos de documentos XML do LexML (`data_ingestion.py`).
+
+---
+
+## ✅ Status da Validação (01/05/2026)
+
+A infraestrutura foi testada e validada com sucesso no ambiente Windows:
+- **Teste de Ingestão:** O script `main.py` identificou e processou arquivos XML em `data/raw`.
+- **Indexação Vetorial:** O modelo `all-MiniLM-L6-v2` foi baixado e gerou o índice FAISS corretamente.
+- **Busca Semântica:** O sistema retornou resultados relevantes para perguntas de teste.
 
 ---
 
