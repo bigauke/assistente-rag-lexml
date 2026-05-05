@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento>
+    <titulo>Lei de Teste da Infraestrutura</titulo>
+    <ementa>Dispõe sobre a validação do motor RAG e do banco vetorial FAISS.</ementa>
+    <texto>
+        Art. 1º Esta lei serve apenas para validar se o script main.py do Daniel Linhares 
+        está carregando arquivos XML corretamente da pasta data/raw.
+        Art. 2º O banco vetorial deve indexar este conteúdo para permitir buscas semânticas.
+    </texto>
+</documento>
