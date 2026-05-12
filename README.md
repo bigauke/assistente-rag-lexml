@@ -64,11 +64,16 @@ source .venv/Scripts/activate
 cp .env.example .env
 ```
 
-## Equipe e responsabilidades
+## 👥 Equipe e Responsabilidades
 
-* Engenharia e Infra: Daniel Linhares e Camila
-* Dados e Ingestão (XML): Nathalia
-* Baselines e LLM: Gisele
+| Integrante | Papel Principal | Atribuições Técnicas |
+| :--- | :--- | :--- |
+| **Daniel Linhares** | Líder de Equipe, Engenharia & Comunicação | Coordenação geral, infraestrutura de pipeline e narrativa técnica. |
+| **Nathalia Gomes** | Líder de Dados & Comunicação | ]Aquisição/curadoria do dataset LexML, EDA e suporte na defesa oral. |
+| **Gisele Fonseca** | Líder de Modelagem | Treinamento do RAG, implementação de baselines e comparação de modelos. |
+| **Camila Soares** | Líder de Engenharia | Reprodutibilidade do ambiente (Docker/uv) e integridade do pipeline. |
+| **Saimom Goz Siebem** | Líder de Avaliação & Comunicação | [cite_start]Métricas de sucesso, análise de erros/alucinação e defesa técnica. |
+| **Stanley de Oliveira Souza** | Líder de Documentação | Redação da proposta formal, manutenção do README e controle de versão. |
 
 ---
 
