@@ -1,105 +1,90 @@
 # Assistente RAG LexML
 
-Este repositório contém a infraestrutura de engenharia e o motor de busca RAG (Retrieval-Augmented Generation) desenvolvido para o projeto de assistência jurídica baseado nos dados do LexML. O sistema permite consultas inteligentes em documentos legislativos utilizando NLP e bancos de dados vetoriais.
+Este repositório contém a infraestrutura de engenharia de dados e o motor cognitivo RAG (Retrieval-Augmented Generation) desenvolvido para estruturar consultas inteligentes em documentos legislativos. O sistema utiliza Processamento de Linguagem Natural (NLP) e bancos de dados vetoriais para buscas semânticas de alta precisão.
 
 ---
 
-## O que construímos
+## 🏗️ Arquitetura e Engenharia
 
-A fundação do projeto foi estabelecida seguindo as melhores práticas de mercado:
+A fundação do projeto segue padrões rigorosos de desenvolvimento e gestão de dados:
 
-* **Gestão de dependências:** uso do `uv` para instalação rápida de pacotes Python 3.12.
-* **Módulo Python:** estruturação do pacote `assistente_rag_lexml`.
-* **Arquitetura de dados:** diretórios para o ciclo de vida dos dados: `data/raw`, `data/processed`, `models` e `notebooks`.
-* **Banco vetorial:** motor de busca validado com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
-* **ETL pipeline:** extração de textos de documentos XML do LexML (`data_ingestion.py`).
-
----
-
-## ✅ Status da Validação (01/05/2026)
-
-A infraestrutura foi testada e validada com sucesso no ambiente Windows:
-- **Teste de Ingestão:** O script `main.py` identificou e processou arquivos XML em `data/raw`.
-- **Indexação Vetorial:** O modelo `all-MiniLM-L6-v2` foi baixado e gerou o índice FAISS corretamente.
-- **Busca Semântica:** O sistema retornou resultados relevantes para perguntas de teste.
+* **Gestão de Dependências:** Instalação e isolamento de ambiente otimizados com `uv` (Python 3.12).
+* **Estruturação Modular:** Encapsulamento da regra de negócio no pacote `assistente_rag_lexml`.
+* **Data Pipeline:** Diretórios segmentados para o ciclo de vida dos dados (`data/raw`, `data/processed`, `models` e `notebooks`).
+* **Motor Vetorial:** Indexação semântica validada com `FAISS` e embeddings do `HuggingFace` (`vector_store.py`).
+* **Ingestão ETL:** Pipeline automatizado para extração e limpeza de textos a partir de documentos XML (`data_ingestion.py`).
 
 ---
 
-## Guia de instalação e configuração
+## ✅ Status de Validação
 
-Siga os passos abaixo utilizando o **Git Bash**.
+**Última validação:** Maio de 2026
+Infraestrutura homologada com sucesso:
+* **Ingestão:** Identificação e processamento íntegro de arquivos XML mapeados em `data/raw` via `main.py`.
+* **Indexação Vetorial:** Download automático do modelo `all-MiniLM-L6-v2` e geração do índice FAISS.
+* **Busca Semântica:** Recuperação de contexto (retrieval) com alta precisão e relevância estrutural.
 
-1. Clonar o repositório
+---
 
+## ⚙️ Guia de Instalação e Configuração
+
+Siga o fluxo abaixo utilizando o **Git Bash** (ou terminal equivalente).
+
+**1. Clonar o repositório**
 ```bash
-git clone https://github.com/bigauke/assistente-rag-lexml.git
-cd assistente-rag-lexml
+git clone [https://github.com/saimomgozn-collab/assistente-rag-hacarthon.git](https://github.com/saimomgozn-collab/assistente-rag-hacarthon.git)
+cd assistente-rag-hacarthon
 ```
 
-2. Instalar o `uv`
-
-Instale o gestor de pacotes via PowerShell:
-
+**2. Instalar o gestor de pacotes (`uv`)**
+Via PowerShell (Windows):
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "irm https://astral.sh/uv/install.ps1 | iex"
+powershell -ExecutionPolicy Bypass -Command "irm [https://astral.sh/uv/install.ps1](https://astral.sh/uv/install.ps1) | iex"
 ```
 
-3. Sincronizar dependências
-
+**3. Sincronizar dependências**
 ```bash
 uv sync
 ```
 
-4. Ativar o ambiente virtual
-
-No Git Bash:
-
+**4. Ativar o ambiente virtual**
 ```bash
 source .venv/Scripts/activate
 ```
 
-5. Configurar variáveis de ambiente
-
+**5. Configurar variáveis de ambiente**
 ```bash
 cp .env.example .env
 ```
 
-## Equipe e responsabilidades
+---
 
-* Engenharia e Infra: Daniel Linhares e Camila
-* Dados e Ingestão (XML): Nathalia
-* Baselines e LLM: Gisele
+## 👥 Equipe e Responsabilidades
+
+Cada membro possui uma área de atuação definida para garantir a agilidade das entregas e evitar sobreposição de tarefas:
+
+| Frente de Atuação | Responsáveis | Escopo Principal |
+| :--- | :--- | :--- |
+| **Engenharia & Infra** | Daniel Linhares | Manutenção do motor RAG, validação de ambiente e revisão de Pull Requests. |
+| **Dados & Ingestão (XML)** | Nathalia, Camila e Saimom | Coleta, limpeza e estruturação dos documentos oficiais na pipeline `data/raw`. |
+| **Baselines & LLM** | Gisele e Stanley | Elaboração de notebooks de teste, refinamento de prompts e avaliação de métricas. |
 
 ---
 
-## 🚀 Guia de colaboração profissional: Projeto LexML
+## 🚀 Guia de Colaboração (Git Flow)
 
-Para garantirmos a integridade do código e a agilidade nas entregas, adotaremos o seguinte fluxo de trabalho.
+Para garantir a integridade do repositório, adotamos um fluxo de versionamento estruturado:
 
-### 1. Divisão de frentes (squad)
+| Etapa | Comando | Descrição |
+| :--- | :--- | :--- |
+| **1. Sync** | `git checkout main && git pull origin main` | Atualiza seu ambiente local com a versão mais recente. |
+| **2. Branch** | `git checkout -b feat/nome-da-tarefa` | Isola seu desenvolvimento em uma nova branch. |
+| **3. Commit** | `git commit -m "feat: adiciona extrator XML"` | Registra alterações utilizando prefixos padrão (`feat:`, `fix:`, `docs:`). |
+| **4. Push** | `git push origin feat/nome-da-tarefa` | Envia suas alterações para o repositório remoto. |
+| **5. PR** | *Ação via GitHub* | Abre um Pull Request solicitando Code Review e integração. |
 
-Cada membro possui uma área de atuação clara para evitar sobreposição de tarefas e conflitos de código:
+### Padrões de Ambiente
 
-| Membro | Frente de atuação | Responsabilidade principal |
-|---|---|---|
-| Daniel Linhares | Engenharia & Infra | Manutenção do motor RAG, validação de ambiente e revisão de Pull Requests. |
-| Nathalia, Camila & Saimon | Dados & Ingestão | Coleta, limpeza e estruturação dos XMLs oficiais do LexML na pasta `data/raw`. |
-| Gisele & Stanley | Baselines & LLM | Criação de notebooks de teste, refino de prompts e avaliação da precisão das respostas. |
-
-### 2. Fluxo de trabalho no Git (Git Flow profissional)
-
-| Passo | Ação | Comando / Descrição |
-|---|---|---|
-| 1. Sync | Atualizar sua máquina local | `git checkout main` seguido de `git pull origin main` |
-| 2. Branch | Criar ramo para sua tarefa | `git checkout -b feat/nome-da-sua-tarefa` |
-| 3. Commit | Registrar alterações | Use prefixos: `feat:` (dados/funções), `fix:` (correções) ou `docs:` |
-| 4. Push | Enviar para o servidor | `git push origin nome-da-sua-branch` |
-| 5. PR | Integrar ao projeto | Abrir um Pull Request no GitHub para revisão do Daniel. |
-
-### 3. Padrões de ambiente e execução
-
-| Ferramenta | Padrão adotado | Motivo |
-|---|---|---|
-| Gestor | `uv` | Garante velocidade e isolamento idêntico entre Windows/Linux. |
-| Execução | `uv run python main.py` | Garante que todas as bibliotecas de IA sejam carregadas corretamente. |
-| Dados | `data/raw` | Local obrigatório para despejo de arquivos XML brutos. |
+* **Gestão:** Uso obrigatório do `uv` para assegurar isolamento idêntico entre sistemas operacionais.
+* **Execução:** Utilize `uv run python main.py` para garantir o carregamento correto das bibliotecas de IA.
+* **Dados Brutos:** Qualquer novo dump de dados deve ser alocado exclusivamente no diretório `data/raw`.
